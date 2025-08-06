@@ -33,7 +33,7 @@ ITAI2373-NewsBot-Final/
 
 ````
 
-## 🛠️ Getting Started
+## Getting Started
 1. **Clone this repo** and install dependencies:
     ```
     pip install -r requirements.txt
@@ -42,7 +42,7 @@ ITAI2373-NewsBot-Final/
 3. **Run demo notebooks:** Open any notebook in `notebooks/` and follow the instructions.
 4. **Try the conversational system:** Use the CLI, notebook, or optional web app for live querying and analysis.
 
-## 👩‍💻 Example Usage
+## Example Usage
 ```python
 from src.data_processing.text_preprocessor import TextPreprocessor
 from src.analysis.classifier import NewsClassifier
@@ -58,27 +58,27 @@ clf = NewsClassifier()
 
 *(See full demos in `notebooks/`!)*
 
-## 📈 Visualizations
+## Visualizations
 
 * Category and sentiment plots, topic word charts, confusion matrices, and more—see `src/utils/visualization.py` and notebooks.
 
-## 🌍 Multilingual & Conversational
+## Multilingual & Conversational
 
 * Analyze English, Spanish, and more.
 * Translate or compare news across languages.
 * Use the query processor for “show me positive tech news” and similar requests.
 
-## 📝 Documentation
+## Documentation
 
 * Technical/user/business docs in `docs/`
 * Executive summary and presentation in `reports/`
 
-## 👥 Team & Contributions
+## Team & Contributions
 
 * \John Castor, \Dylan Castillo, \Milagros Pumasupa, \Ola Bakare
 * See `docs/individual_contributions.md` for details
 
-## 💼 License & Attribution
+## License & Attribution
 
 * For ITAI2373, \Patricia McManus, Summer 2025
 * Powered by: scikit-learn, spaCy, transformers, sentence-transformers, textblob, sumy, googletrans, matplotlib, seaborn, and more.
