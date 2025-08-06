@@ -2,3 +2,13 @@ spacy
 nltk
 langdetect
 scikit-learn
+pyldavis
+textblob
+transformers
+torch
+sumy
+sentence-transformers
+numpy
+matplotlib
+seaborn
+googletrans==4.0.0-rc1
