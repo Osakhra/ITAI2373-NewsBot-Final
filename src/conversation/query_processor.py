@@ -42,10 +42,17 @@ class QueryProcessor:
                 return f"Entities found: {ents}"
             else:
                 return "No entities found."
-        elif intent == "topic" or "topic" in query or "theme" in query: # Check intent or keywords
-            article_features = self.feature_extractor.transform([article_text])
-            topic_id = self.topic_modeler.assign_topic(article_features) # Corrected assign_topic call
-            return f"Main Topic: {topic_id}" # Assuming assign_topic returns a topic identifier
+        elif intent == "topic" or any(k in query for k in ["topic", "theme", "main subject"]):
+            # Pass RAW TEXT to TopicModeler; it handles its own vectorization
+            topic_id = self.topic_modeler.assign_topic(article_text)
+            # If your TopicModeler exposes top words:
+        try:
+            topic_words = self.topic_modeler.get_topic_words(topic_id, n_words=8)
+            return f"Main topic #{topic_id}: {', '.join(topic_words)}"
+         except Exception:
+            # Fallback if get_topic_words isn't available/throws
+            return f"Main topic #{topic_id}"
+
         elif intent == "summarize" or "summarize" in query or "summary" in query: # Check intent or keywords
             summary = self.summarizer.summarize(article_text)
             return f"Summary: {summary}"
