@@ -8,19 +8,25 @@ Classifies user queries by intent (e.g., sentiment, topic, summary, etc.).
 import re
 
 class IntentClassifier:
+    """
+    Tiny intent classifier for NewsBot.
+    Returns one of: 'category', 'sentiment', 'entities', 'topic', 'summary', 'unknown'
+    """
     def __init__(self):
-        # Define keywords for each intent
-        self.intent_keywords = {
-            "category": ["category", "classify", "label"],
-            "sentiment": ["sentiment", "emotion", "feeling", "tone"],
-            "entities": ["entity", "entities", "person", "organization", "place", "location", "company"],
-            "topic": ["topic", "theme", "subject"],
-            "summary": ["summary", "summarize", "abstract", "short version"],
+        # You can expand these keyword lists later if you want
+        self.intents = {
+            "category":  ["category", "classify", "label", "what is this about"],
+            "sentiment": ["sentiment", "emotion", "tone", "polarity"],
+            "entities":  ["entity", "entities", "person", "organization", "org", "who", "what is mentioned"],
+            "topic":     ["topic", "theme", "main subject"],
+            "summary":   ["summary", "summarize", "tl;dr"]
         }
 
-    def classify_intent(self, query):
-        query = query.lower()
-        for intent, keywords in self.intent_keywords.items():
-            if any(re.search(rf'\b{kw}\b', query) for kw in keywords):
+    def classify(self, query: str) -> str:
+        q = query.lower().strip()
+        # quick keyword match
+        for intent, keywords in self.intents.items():
+            if any(k in q for k in keywords):
                 return intent
         return "unknown"
+
