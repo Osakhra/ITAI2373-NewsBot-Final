@@ -6,6 +6,7 @@ Handles TF-IDF vectorization and can be extended for embeddings.
 """
 
 from sklearn.feature_extraction.text import TfidfVectorizer
+import pickle
 
 class FeatureExtractor:
     def __init__(self, max_features=2000, ngram_range=(1,2)):
@@ -35,7 +36,13 @@ class FeatureExtractor:
         """
         return self.vectorizer.get_feature_names_out()
 
-# (Optional advanced placeholder: For semantic embeddings, use SentenceTransformers or spaCy)
-# from sentence_transformers import SentenceTransformer
-# class EmbeddingExtractor:
-#     ...
+    def save(self, filepath):
+        """Saves the fitted vectorizer to disk."""
+        with open(filepath, 'wb') as f:
+            pickle.dump(self.vectorizer, f)
+
+    def load(self, filepath):
+        """Loads a fitted vectorizer from disk."""
+        with open(filepath, 'rb') as f:
+            self.vectorizer = pickle.load(f)
+            self.fitted = True
