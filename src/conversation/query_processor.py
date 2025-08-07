@@ -5,7 +5,7 @@ Query Processor for NewsBot 2.0
 Parses user questions and routes to the appropriate module.
 """
 
-from analysis.feature_extractor import FeatureExtractor
+from data_processing.feature_extractor import FeatureExtractor
 
 class QueryProcessor:
     def __init__(self, classifier, sentiment_analyzer, ner_extractor, topic_modeler, summarizer, feature_extractor):
