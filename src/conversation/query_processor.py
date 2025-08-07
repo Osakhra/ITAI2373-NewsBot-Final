@@ -28,8 +28,7 @@ class QueryProcessor:
         intent = self.intent_classifier.classify(query)
         print(f"Detected Intent: {intent}") # Optional: print detected intent
 
-        if intent == "category" or "category" in query or "classify" in query: # Check intent or keywords
-            # Transform the article text using the feature extractor before predicting
+        if intent == "category" or any(k in query for k in ["category", "classify"]):
             article_features = self.feature_extractor.transform([article_text])
             return f"Predicted Category: {self.classifier.predict(article_features)[0]}"
         elif intent == "sentiment" or "sentiment" in query or "emotion" in query: # Check intent or keywords
