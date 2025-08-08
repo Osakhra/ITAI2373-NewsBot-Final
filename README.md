@@ -1,8 +1,3 @@
-Here’s an updated **README.md** you can copy into your GitHub `README.md` file so it reflects everything we’ve done with **NewsBot 2.0**.
-I’ve written it in a professional, first-person style so it works for both grading and LinkedIn portfolio presentation.
-
----
-
 # 📰 NewsBot 2.0 — AI-Powered News Intelligence System
 
 ## 📌 Overview
