@@ -148,8 +148,3 @@ NewsBot: Entities found: Cynthia Cooper [PERSON], Worldcom [ORG], 2002 [DATE], $
 ## 📜 License
 
 This project is released under the MIT License.
-
----
-
-Do you want me to now also add a **"📌 Project Highlights & My Contributions"** section in the README so it’s clear what *you personally* did for the LinkedIn portfolio?
-That would make this look even stronger to employers.
