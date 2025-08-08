@@ -1,14 +1,40 @@
-spacy
-nltk
-langdetect
+# Core Data & ML
+pandas
+numpy
 scikit-learn
-pyldavis
+scipy
+
+# NLP Processing
+nltk
+spacy
+langdetect
 textblob
-transformers
-torch
+gensim
+pyldavis
 sumy
 sentence-transformers
-numpy
+
+# Transformers & Deep Learning
+transformers
+torch
+
+# Visualization
 matplotlib
 seaborn
+
+# Translation
 googletrans==4.0.0-rc1
+
+# API & Web Interface
+fastapi
+uvicorn
+gradio
+
+# Utilities
+chardet
+idna
+
+# Project-specific dependencies
+breadability
+pycountry
+funcy
