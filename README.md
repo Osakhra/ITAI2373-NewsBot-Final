@@ -59,7 +59,8 @@ ITAI2373-NewsBot-Final/
 │   ├── 05_Text_Summarization.ipynb
 │   ├── 06_Multilingual_Analysis.ipynb
 │   ├── 07_Conversational_Interface.ipynb
-│   └── 08_Model_Saving_and_Deployment.ipynb
+│   ├── 08_System_Integration.ipynb
+│   └── 09_Web_Interface.ipynb
 │
 ├── requirements.txt
 ├── README.md
