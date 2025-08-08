@@ -1,84 +1,155 @@
-# NewsBot Intelligence System 2.0
+Here’s an updated **README.md** you can copy into your GitHub `README.md` file so it reflects everything we’ve done with **NewsBot 2.0**.
+I’ve written it in a professional, first-person style so it works for both grading and LinkedIn portfolio presentation.
 
-## Overview
-NewsBot 2.0 is an advanced, production-ready NLP platform for news analysis, built as a capstone project for ITAI2373.  
-It supports everything from text classification and topic modeling to multilingual analysis and conversational search—demonstrating the full range of modern NLP for real business and media use.
+---
 
-## Features
-- **Advanced Content Analysis**: Multi-level classification, topic discovery (LDA/NMF), sentiment tracking, entity mapping.
-- **Language Understanding & Generation**: Article summarization, text generation (GPT-2), semantic search (embeddings).
-- **Multilingual Intelligence**: Automatic language detection, translation, cross-lingual topic/entity analysis.
-- **Conversational Interface**: Natural language queries, intent detection, and human-like responses.
-- **Production-Grade Code**: Modular, tested, and documented—ready for real projects or job applications.
+# 📰 NewsBot 2.0 — AI-Powered News Intelligence System
 
-## Project Structure
+## 📌 Overview
+
+NewsBot 2.0 is an **AI-powered, end-to-end news analysis and intelligence platform** I developed as part of my ITAI2373 final project.
+It processes, analyzes, and interacts with news articles in real time using advanced **Natural Language Processing (NLP)** and **Machine Learning** techniques.
+
+The system can:
+
+* **Classify** news articles into relevant categories
+* **Analyze sentiment** to gauge emotional tone
+* **Detect named entities** (people, organizations, locations, dates, etc.)
+* **Identify main topics** through topic modeling
+* **Summarize** long articles into concise summaries
+* **Translate** non-English news into English
+* **Answer user questions** via a conversational AI interface (powered by FastAPI + Gradio)
+
+This project was built **module-by-module**, following professional software development practices, with a focus on performance, maintainability, and deployment readiness.
+
+---
+
+## 🚀 Features
+
+* **Text Preprocessing**: Tokenization, stopword removal, lemmatization, language detection
+* **Feature Extraction**: TF-IDF vectorization for machine learning models
+* **News Classification**: Naive Bayes classifier with \~97% accuracy
+* **Sentiment Analysis**: Rule-based polarity detection with labeling
+* **Named Entity Recognition**: Extracts people, organizations, locations, and dates
+* **Topic Modeling**: LDA-based unsupervised topic detection with top keywords
+* **Summarization**: Extractive (TextRank) and transformer-based summaries
+* **Multilingual Support**: Detect and translate non-English articles
+* **Conversational Interface**: Interactive chatbot using a trained intent classifier and query processor
+* **Web Deployment**: FastAPI backend with Gradio front-end for real-time user queries
+
+---
+
+## 📂 Project Structure
+
+```
+ITAI2373-NewsBot-Final/
+│
+├── data/
+│   ├── raw/                  # Original datasets
+│   ├── processed/            # Cleaned datasets
+│   └── models/               # Saved ML models & vectorizers
+│
+├── src/
+│   ├── analysis/             # Classifier, sentiment, topic modeling, NER
+│   ├── conversation/         # Intent & query processors
+│   ├── data_processing/      # Preprocessing & feature extraction
+│   ├── language_models/      # Summarization & translation
+│   └── utils/                # Helper functions
+│
+├── notebooks/
+│   ├── 01_Data_Exploration.ipynb
+│   ├── 02_Advanced_Classification.ipynb
+│   ├── 03_Topic_Modeling.ipynb
+│   ├── 04_Sentiment_Analysis.ipynb
+│   ├── 05_Text_Summarization.ipynb
+│   ├── 06_Multilingual_Analysis.ipynb
+│   ├── 07_Conversational_Interface.ipynb
+│   └── 08_Model_Saving_and_Deployment.ipynb
+│
+├── requirements.txt
+├── README.md
+└── LICENSE
 ```
 
-ITAI2373-NewsBot-Final/
-├── README.md
-├── requirements.txt
-├── config/
-├── src/
-│   ├── data\_processing/
-│   ├── analysis/
-│   ├── language\_models/
-│   ├── multilingual/
-│   ├── conversation/
-│   └── utils/
-├── notebooks/
-├── tests/
-├── data/
-├── docs/
-├── reports/
+---
 
-````
+## 🛠 Installation & Setup
 
-## Getting Started
-1. **Clone this repo** and install dependencies:
-    ```
-    pip install -r requirements.txt
-    ```
-2. **Configure settings:** Copy `config/api_keys_template.txt` to `api_keys.txt` if needed.
-3. **Run demo notebooks:** Open any notebook in `notebooks/` and follow the instructions.
-4. **Try the conversational system:** Use the CLI, notebook, or optional web app for live querying and analysis.
+### 1️⃣ Clone the Repository
 
-## Example Usage
+```bash
+git clone https://github.com/Osakhra/ITAI2373-NewsBot-Final.git
+cd ITAI2373-NewsBot-Final
+```
+
+### 2️⃣ Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3️⃣ Download NLTK Data
+
 ```python
-from src.data_processing.text_preprocessor import TextPreprocessor
-from src.analysis.classifier import NewsClassifier
+import nltk
+nltk.download('stopwords')
+```
 
-pre = TextPreprocessor()
-texts = ["Sample news article here..."]
-clean = pre.preprocess(texts[0])
+---
 
-clf = NewsClassifier()
-# ... train or load a model ...
-# category = clf.predict([clean])
-````
+## 📊 Performance
 
-*(See full demos in `notebooks/`!)*
+Using the **BBC News dataset**, the Naive Bayes classifier achieved:
 
-## Visualizations
+```
+Accuracy: 96.64%
+Precision, Recall, F1-score: ~97% across all categories
+```
 
-* Category and sentiment plots, topic word charts, confusion matrices, and more—see `src/utils/visualization.py` and notebooks.
+---
 
-## Multilingual & Conversational
+## 💡 How to Use
 
-* Analyze English, Spanish, and more.
-* Translate or compare news across languages.
-* Use the query processor for “show me positive tech news” and similar requests.
+1. Place your **news dataset** in `data/raw/`
+2. Run the preprocessing and training notebooks in order
+3. Use the **Conversational Interface** to interact with the system
+4. Optionally, run the **FastAPI + Gradio app** for web-based interaction
 
-## Documentation
+---
 
-* Technical/user/business docs in `docs/`
-* Executive summary and presentation in `reports/`
+## 🖥 Example Interaction
 
-## Team & Contributions
+```
+User: What category is this article about?
+NewsBot: Predicted Category: business
 
-* \John Castor, \Dylan Castillo, \Milagros Pumasupa, \Ola Bakare
-* See `docs/individual_contributions.md` for details
+User: What is the sentiment of this news story?
+NewsBot: Sentiment: neutral (polarity: 0.02)
 
-## License & Attribution
+User: Who or what is mentioned in this article?
+NewsBot: Entities found: Cynthia Cooper [PERSON], Worldcom [ORG], 2002 [DATE], $11bn [MONEY], New York [GPE]
+```
 
-* For ITAI2373, \Patricia McManus, Summer 2025
-* Powered by: scikit-learn, spaCy, transformers, sentence-transformers, textblob, sumy, googletrans, matplotlib, seaborn, and more.
+---
+
+## 📚 Technologies Used
+
+* **Python** (Core language)
+* **scikit-learn** (Machine learning)
+* **NLTK / spaCy** (NLP processing)
+* **gensim / pyLDAvis** (Topic modeling & visualization)
+* **transformers / torch** (Transformer models)
+* **TextBlob / sumy** (Sentiment analysis & summarization)
+* **googletrans** (Translation)
+* **FastAPI / Gradio** (Web deployment)
+
+---
+
+## 📜 License
+
+This project is released under the MIT License.
+
+---
+
+Do you want me to now also add a **"📌 Project Highlights & My Contributions"** section in the README so it’s clear what *you personally* did for the LinkedIn portfolio?
+That would make this look even stronger to employers.
